@@ -1,14 +1,13 @@
-#### TRANSFER BACKUP FILE TO ANOTHER SERVER on UBUNTU 22.04 ####
-### nohup transfer.sh &> transfer_log.log & ####
-
 #!/bin/bash
 
-sudo apt update -y
-sudo apt install sshpass rsync inotify-tools curl -y
+#sudo apt update -y
+#sudo apt install sshpass rsync inotify-tools curl -y
+
+#### TRANSFER BACKUP FILE TO ANOTHER SERVER ####
+### nohup transfer.sh &> transfer_log.log & ####
 
 WATCH_DIR=""
-
-REMOTE_USER=""
+REMOTE_USER="root"
 REMOTE_HOST=""
 REMOTE_DIR=""
 PASSWORD=""
@@ -36,7 +35,13 @@ do
 
         if [[ $? -eq 0 ]]; then
             echo "Successfully uploaded: $NEW_FILE"
-            send_telegram_message "New backup: ${NEW_FILE} is uploaded! Goodnight!"
+            send_telegram_message "Backup: ${NEW_FILE} is uploaded! Goodnight!"
+        
+        sleep 3
+        
+        rm "$FILE_PATH"
+            echo "File deleted from server: $NEW_FILE"    
+
         else
             echo "Failed to upload: $NEW_FILE"
             send_telegram_message "Failed to upload: ${NEW_FILE}. Please check the server."
