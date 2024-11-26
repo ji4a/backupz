@@ -35,7 +35,7 @@ do
 
         if [[ $? -eq 0 ]]; then
             echo "Successfully uploaded: $NEW_FILE"
-            send_telegram_message "New backup file: ${NEW_FILE} is uploaded! Goodnight!"
+            send_telegram_message "New backup: ${NEW_FILE} is uploaded! Goodnight!"
         else
             echo "Failed to upload: $NEW_FILE"
             send_telegram_message "Failed to upload: ${NEW_FILE}. Please check the server."
