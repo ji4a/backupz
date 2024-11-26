@@ -12,6 +12,8 @@ do
         
         NEW_FILE_PATH="$WATCH_DIR/$NEW_FILE"
         ZIP_FILE_PATH="$WATCH_DIR/$ZIP_FILE"
+
+        sleep 20
         
         echo "Compressing $NEW_FILE_PATH to $ZIP_FILE_PATH..."
         zip -r "$ZIP_FILE_PATH" "$NEW_FILE_PATH"
