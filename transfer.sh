@@ -1,4 +1,5 @@
 #### TRANSFER BACKUP FILE TO ANOTHER SERVER on UBUNTU 22.04 ####
+### nohup transfer.sh &> transfer_log.log & ####
 
 #!/bin/bash
 
