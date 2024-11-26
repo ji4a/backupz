@@ -8,7 +8,6 @@ mkdir -p "$ZIP_DIR"
 inotifywait -m -e create --format "%f" "$WATCH_DIR" | while read NEW_FILE
 do
     if [[ "$NEW_FILE" =~ \.tar\.gz$ ]]; then
-        # Create the output zip file name
         ZIP_FILE="${NEW_FILE%.tar.gz}.zip"
         
         NEW_FILE_PATH="$WATCH_DIR/$NEW_FILE"
